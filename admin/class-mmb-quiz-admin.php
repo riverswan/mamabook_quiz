@@ -100,4 +100,11 @@ class Mmb_Quiz_Admin {
 
 	}
 
+	public function replace_default_menu($args) {
+		if (is_page('tests')) {
+			$args['menu'] = 'Topbar Menu';
+		}
+		return $args;
+	}
+
 }

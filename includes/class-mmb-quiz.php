@@ -35,7 +35,7 @@ class Mmb_Quiz {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Mmb_Quiz_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Mmb_Quiz_Loader $loader Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -44,7 +44,7 @@ class Mmb_Quiz {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @var      string $plugin_name The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
 
@@ -53,7 +53,7 @@ class Mmb_Quiz {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * @var      string $version The current version of the plugin.
 	 */
 	protected $version;
 
@@ -71,6 +71,11 @@ class Mmb_Quiz {
 			$this->version = MMB_QUIZ_VERSION;
 		} else {
 			$this->version = '1.0.0';
+		}
+		if ( defined( 'MMB_QUIZ_NAME' ) ) {
+			$this->version = MMB_QUIZ_NAME;
+		} else {
+			$this->version = 'mmb-quiz';
 		}
 		$this->plugin_name = 'mmb-quiz';
 
@@ -156,7 +161,29 @@ class Mmb_Quiz {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_filter( 'wp_nav_menu_args', $plugin_admin, 'replace_default_menu', 10, 1 );
 
+	}
+
+	/**
+	 * The name of the plugin used to uniquely identify it within the context of
+	 * WordPress and to define internationalization functionality.
+	 *
+	 * @return    string    The name of the plugin.
+	 * @since     1.0.0
+	 */
+	public function get_plugin_name() {
+		return $this->plugin_name;
+	}
+
+	/**
+	 * Retrieve the version number of the plugin.
+	 *
+	 * @return    string    The version number of the plugin.
+	 * @since     1.0.0
+	 */
+	public function get_version() {
+		return $this->version;
 	}
 
 	/**
@@ -185,34 +212,13 @@ class Mmb_Quiz {
 	}
 
 	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_plugin_name() {
-		return $this->plugin_name;
-	}
-
-	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     1.0.0
 	 * @return    Mmb_Quiz_Loader    Orchestrates the hooks of the plugin.
+	 * @since     1.0.0
 	 */
 	public function get_loader() {
 		return $this->loader;
-	}
-
-	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The version number of the plugin.
-	 */
-	public function get_version() {
-		return $this->version;
 	}
 
 }

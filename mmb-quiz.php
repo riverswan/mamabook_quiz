@@ -36,6 +36,8 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'MMB_QUIZ_VERSION', '1.0.0' );
+define( 'MMB_QUIZ_NAME', 'mmb-quiz' );
+define( 'MMB_QUIZ_TEXT_DOMAIN', 'mmb-quiz' );
 
 /**
  * The code that runs during plugin activation.
