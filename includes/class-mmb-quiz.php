@@ -126,6 +126,7 @@ class Mmb_Quiz {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-mmb-quiz-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-mmb-quiz-custom-post.php';
 
 		$this->loader = new Mmb_Quiz_Loader();
 
@@ -158,12 +159,13 @@ class Mmb_Quiz {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Mmb_Quiz_Admin( $this->get_plugin_name(), $this->get_version() );
+		$post_types   = new Mmb_Quiz_Custom_Post( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_filter( 'wp_nav_menu_args', $plugin_admin, 'replace_default_menu', 10, 1 );
-		$this->loader->add_action( 'init', $plugin_admin, 'mmb_quiz_post_types', 10);
-		$this->loader->add_action( 'init', $plugin_admin, 'mmb_quiz_taxonomy', 10 );
+		$this->loader->add_filter( 'wp_nav_menu_args', $post_types, 'replace_default_menu', 10, 1 );
+		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_post_types', 10 );
+		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_taxonomy', 10 );
 
 	}
 
