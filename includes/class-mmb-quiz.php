@@ -126,6 +126,7 @@ class Mmb_Quiz {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-mmb-quiz-public.php';
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-mmb-quiz-custom-post.php';
 
 		$this->loader = new Mmb_Quiz_Loader();
