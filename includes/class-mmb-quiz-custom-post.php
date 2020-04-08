@@ -110,7 +110,6 @@ class Mmb_Quiz_Custom_Post {
 	}
 
 	public function mmb_quiz_post_types() {
-
 		$labels = array(
 			'name'                  => _x( 'Онлайн Тести', 'Post type general name', MMB_QUIZ_TEXT_DOMAIN ),
 			'singular_name'         => _x( 'Онлайн Тест', 'Post type singular name', MMB_QUIZ_TEXT_DOMAIN ),
@@ -168,11 +167,11 @@ class Mmb_Quiz_Custom_Post {
 			array(
 				'hierarchical'          => true,
 				'labels'                => array(
-					'name'                       => __( 'Quiz categories', MMB_QUIZ_TEXT_DOMAIN ),
+					'name'                       => __( 'Категорія тестів', MMB_QUIZ_TEXT_DOMAIN ),
 					'singular_name'              => __( 'Категорія тестів ', MMB_QUIZ_TEXT_DOMAIN ),
 					'search_items'               => __( 'Find Quiz Category', MMB_QUIZ_TEXT_DOMAIN ),
 					'popular_items'              => __( 'Popular Quiz Categories', MMB_QUIZ_TEXT_DOMAIN ),
-					'all_items'                  => __( 'All Quiz Categories', MMB_QUIZ_TEXT_DOMAIN ),
+					'all_items'                  => __( 'Всі категорії тестів', MMB_QUIZ_TEXT_DOMAIN ),
 					'parent_item'                => null,
 					'parent_item_colon'          => null,
 					'edit_item'                  => __( 'Edit Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
@@ -182,7 +181,7 @@ class Mmb_Quiz_Custom_Post {
 					'separate_items_with_commas' => __( 'Separate by commas', MMB_QUIZ_TEXT_DOMAIN ),
 					'add_or_remove_items'        => __( 'Add/Remove Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
 					'choose_from_most_used'      => __( 'Choose most popular', MMB_QUIZ_TEXT_DOMAIN ),
-					'menu_name'                  => __( 'Quiz Categories', MMB_QUIZ_TEXT_DOMAIN ),
+					'menu_name'                  => __( 'Категорія тестів', MMB_QUIZ_TEXT_DOMAIN ),
 				),
 				'public'                => true,
 				'show_in_nav_menus'     => true,
@@ -190,12 +189,9 @@ class Mmb_Quiz_Custom_Post {
 				'show_tagcloud'         => true,
 				'update_count_callback' => '_update_post_term_count',
 				'query_var'             => true,
+				'show_admin_column'     => true,
 				'rewrite'               => array(
-					'slug'         => 'tematika',
-					'hierarchical' => false,
-//					'slug'       => '/',
-					'with_front' => false,
-
+					'slug' => 'tematika',
 				),
 			)
 		);
