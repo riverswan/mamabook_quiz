@@ -102,7 +102,7 @@ class Mmb_Quiz_Admin {
 
 	public function replace_default_menu( $args ) {
 
-		if ( is_page( 'tests' ) || is_singular('quiz') || is_tax('quiz-taxonomy')) {
+		if ( is_page( 'tests' ) || is_singular( 'quiz' ) || is_tax( 'quiz-taxonomy' ) ) {
 			$args['menu'] = 'quiz menu';
 		}
 		return $args;
@@ -144,7 +144,10 @@ class Mmb_Quiz_Admin {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'quiz' ),
+			'rewrite'            => array(
+				'slug'       => 'quiz',
+				'with_front' => false,
+			),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -165,7 +168,7 @@ class Mmb_Quiz_Admin {
 				'hierarchical'          => true,
 				'labels'                => array(
 					'name'                       => __( 'Quiz categories', MMB_QUIZ_TEXT_DOMAIN ),
-					'singular_name'              => __( 'Quiz category', MMB_QUIZ_TEXT_DOMAIN ),
+					'singular_name'              => __( 'Категорія тестів ', MMB_QUIZ_TEXT_DOMAIN ),
 					'search_items'               => __( 'Find Quiz Category', MMB_QUIZ_TEXT_DOMAIN ),
 					'popular_items'              => __( 'Popular Quiz Categories', MMB_QUIZ_TEXT_DOMAIN ),
 					'all_items'                  => __( 'All Quiz Categories', MMB_QUIZ_TEXT_DOMAIN ),
@@ -187,8 +190,10 @@ class Mmb_Quiz_Admin {
 				'update_count_callback' => '_update_post_term_count',
 				'query_var'             => true,
 				'rewrite'               => array(
-					'slug'         => 'quiz-category',
-					'hierarchical' => true,
+					'slug'         => 'tematika',
+					'hierarchical' => false,
+//					'slug'       => '/',
+					'with_front' => false,
 
 				),
 			)
