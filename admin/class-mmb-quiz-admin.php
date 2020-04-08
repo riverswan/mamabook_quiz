@@ -102,7 +102,7 @@ class Mmb_Quiz_Admin {
 
 	public function replace_default_menu( $args ) {
 
-		if ( is_page( 'tests' ) || is_singular( 'quiz' ) || is_tax( 'quiz-taxonomy' ) ) {
+		if ( is_singular( 'quiz' ) || is_tax( 'quiz-taxonomy' ) ) {
 			$args['menu'] = 'quiz menu';
 		}
 		return $args;
@@ -145,7 +145,7 @@ class Mmb_Quiz_Admin {
 			'show_in_menu'       => true,
 			'query_var'          => true,
 			'rewrite'            => array(
-				'slug'       => 'quiz',
+				'slug'       => 'onlinetest',
 				'with_front' => false,
 			),
 			'capability_type'    => 'post',
@@ -153,17 +153,17 @@ class Mmb_Quiz_Admin {
 			'hierarchical'       => false,
 			'menu_position'      => null,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-			'taxonomies'         => array( 'quiz-taxonomy' ),
+			'taxonomies'         => array( 'onlinetest-taxonomy' ),
 			'menu_icon'          => 'dashicons-editor-ol',
 		);
 
-		register_post_type( 'quiz', $args );
+		register_post_type( 'onlinetest', $args );
 	}
 
 	public function mmb_quiz_taxonomy() {
 		register_taxonomy(
-			'quiz-taxonomy',
-			array( 'quiz' ),
+			'tematika',
+			array( 'onlinetest' ),
 			array(
 				'hierarchical'          => true,
 				'labels'                => array(
