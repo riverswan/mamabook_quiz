@@ -152,7 +152,7 @@ class Mmb_Quiz_Custom_Post {
 			'hierarchical'       => false,
 			'menu_position'      => 4,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-			'taxonomies'         => array( 'onlinetest-taxonomy' ),
+			'taxonomies'         => array( 'tematika' ),
 			'menu_icon'          => 'dashicons-editor-ol',
 		);
 
