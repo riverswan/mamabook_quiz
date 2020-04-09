@@ -102,7 +102,6 @@ class Mmb_Quiz_Custom_Post {
 
 
 	public function replace_default_menu( $args ) {
-
 		if ( is_singular( 'onlinetest' ) || is_tax( 'tematika' ) ) {
 			$args['menu'] = 'quiz menu';
 		}
