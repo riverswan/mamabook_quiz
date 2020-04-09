@@ -150,7 +150,7 @@ class Mmb_Quiz_Custom_Post {
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_position'      => null,
+			'menu_position'      => 4,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
 			'taxonomies'         => array( 'onlinetest-taxonomy' ),
 			'menu_icon'          => 'dashicons-editor-ol',

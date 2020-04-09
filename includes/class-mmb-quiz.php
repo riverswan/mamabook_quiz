@@ -165,7 +165,7 @@ class Mmb_Quiz {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_filter( 'wp_nav_menu_args', $post_types, 'replace_default_menu', 10, 1 );
-		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_post_types', 10 );
+		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_post_types', 2 );
 		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_taxonomy', 10 );
 
 	}
