@@ -169,7 +169,7 @@ class Mmb_Quiz_Custom_Post {
 					'name'                       => __( 'Категорія тестів', MMB_QUIZ_TEXT_DOMAIN ),
 					'singular_name'              => __( 'Категорія тестів ', MMB_QUIZ_TEXT_DOMAIN ),
 					'search_items'               => __( 'Find Quiz Category', MMB_QUIZ_TEXT_DOMAIN ),
-					'popular_items'              => __( 'Popular Quiz Categories', MMB_QUIZ_TEXT_DOMAIN ),
+					'popular_items'              => __( 'Популярні категорії тестів', MMB_QUIZ_TEXT_DOMAIN ),
 					'all_items'                  => __( 'Всі категорії тестів', MMB_QUIZ_TEXT_DOMAIN ),
 					'parent_item'                => null,
 					'parent_item_colon'          => null,
