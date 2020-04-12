@@ -175,7 +175,7 @@ class Mmb_Quiz_Custom_Post {
 					'parent_item_colon'          => null,
 					'edit_item'                  => __( 'Редагувати категорію тесту', MMB_QUIZ_TEXT_DOMAIN ),
 					'update_item'                => __( 'Оновити категорію тесту', MMB_QUIZ_TEXT_DOMAIN ),
-					'add_new_item'               => __( 'Add new Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
+					'add_new_item'               => __( 'Додати нову категорію тесту', MMB_QUIZ_TEXT_DOMAIN ),
 					'new_item_name'              => __( 'New Quiz Category Name', MMB_QUIZ_TEXT_DOMAIN ),
 					'separate_items_with_commas' => __( 'Separate by commas', MMB_QUIZ_TEXT_DOMAIN ),
 					'add_or_remove_items'        => __( 'Add/Remove Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
