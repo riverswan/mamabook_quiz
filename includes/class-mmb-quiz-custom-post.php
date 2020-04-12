@@ -179,7 +179,7 @@ class Mmb_Quiz_Custom_Post {
 					'new_item_name'              => __( 'New Quiz Category Name', MMB_QUIZ_TEXT_DOMAIN ),
 					'separate_items_with_commas' => __( 'Separate by commas', MMB_QUIZ_TEXT_DOMAIN ),
 					'add_or_remove_items'        => __( 'Add/Remove Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
-					'choose_from_most_used'      => __( 'Choose most popular', MMB_QUIZ_TEXT_DOMAIN ),
+					'choose_from_most_used'      => __( 'Оберіть найпопулярнішу', MMB_QUIZ_TEXT_DOMAIN ),
 					'menu_name'                  => __( 'Категорія тестів', MMB_QUIZ_TEXT_DOMAIN ),
 				),
 				'public'                => true,
