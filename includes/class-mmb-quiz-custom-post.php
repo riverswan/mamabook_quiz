@@ -173,7 +173,7 @@ class Mmb_Quiz_Custom_Post {
 					'all_items'                  => __( 'Всі категорії тестів', MMB_QUIZ_TEXT_DOMAIN ),
 					'parent_item'                => null,
 					'parent_item_colon'          => null,
-					'edit_item'                  => __( 'Edit Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
+					'edit_item'                  => __( 'Редагувати категорію тесту', MMB_QUIZ_TEXT_DOMAIN ),
 					'update_item'                => __( 'Updated Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
 					'add_new_item'               => __( 'Add new Quiz Categorie', MMB_QUIZ_TEXT_DOMAIN ),
 					'new_item_name'              => __( 'New Quiz Category Name', MMB_QUIZ_TEXT_DOMAIN ),
