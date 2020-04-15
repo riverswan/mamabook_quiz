@@ -148,7 +148,7 @@ class Mmb_Quiz_Custom_Post {
 				'with_front' => false,
 			),
 			'capability_type'    => 'post',
-			'has_archive'        => true,
+			'has_archive'        => false,
 			'hierarchical'       => false,
 			'menu_position'      => 4,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
