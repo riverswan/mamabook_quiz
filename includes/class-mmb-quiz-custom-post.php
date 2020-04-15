@@ -148,7 +148,7 @@ class Mmb_Quiz_Custom_Post {
 				'with_front' => false,
 			),
 			'capability_type'    => 'post',
-			'has_archive'        => false,
+			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => 4,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
@@ -194,6 +194,13 @@ class Mmb_Quiz_Custom_Post {
 				),
 			)
 		);
+	}
+
+	public function archive_to_main_page() {
+		if( is_post_type_archive( 'onlinetest' ) ) {
+			wp_redirect( home_url( '/' ), 301 );
+			exit();
+		}
 	}
 
 }
