@@ -196,7 +196,7 @@ class Mmb_Quiz_Custom_Post {
 		);
 	}
 
-	public function archive_to_main_page() {
+	public function mmb_archive_to_main_page() {
 		if( is_post_type_archive( 'onlinetest' ) ) {
 			wp_redirect( home_url( '/' ), 301 );
 			exit();
