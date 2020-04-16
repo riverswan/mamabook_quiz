@@ -202,5 +202,4 @@ class Mmb_Quiz_Custom_Post {
 			exit();
 		}
 	}
-
 }
