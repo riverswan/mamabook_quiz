@@ -102,7 +102,7 @@ class Mmb_Quiz_Custom_Post {
 
 
 	public function replace_default_menu( $args ) {
-		if ( is_singular( 'onlinetest' ) || is_tax( 'tematika' ) || is_post_type_archive('onlinetest') ) {
+		if ( is_singular( 'onlinetest' ) || is_tax( 'tematika' ) || is_post_type_archive( 'onlinetest' ) ) {
 			$args['menu'] = 'quiz menu';
 		}
 		return $args;
@@ -197,7 +197,7 @@ class Mmb_Quiz_Custom_Post {
 	}
 
 	public function mmb_archive_to_main_page() {
-		if( is_post_type_archive( 'onlinetest' ) ) {
+		if ( is_post_type_archive( 'onlinetest' ) ) {
 			wp_redirect( home_url( '/' ), 301 );
 			exit();
 		}
