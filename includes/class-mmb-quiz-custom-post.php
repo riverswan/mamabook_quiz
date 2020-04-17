@@ -3,16 +3,6 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://github.com/riverswan/
- * @since      1.0.0
- *
- * @package    Mmb_Quiz
- * @subpackage Mmb_Quiz/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
