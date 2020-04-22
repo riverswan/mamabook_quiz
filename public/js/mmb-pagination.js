@@ -9,4 +9,12 @@ function mmb_pagination(clickCount) {
 
     window.history.replaceState({page: clickCount},"Page",initialUrl + clickCount + "/");
 
+    let statistics = document.querySelector('#mmb_bigmir_statistics');
+    let statisticsCode = statistics.innerHTML;
+
+    statistics.innerHTML = "";
+
+    setTimeout(()=>{
+        statistics.innerHTML = statisticsCode;
+    },3000)
 }
