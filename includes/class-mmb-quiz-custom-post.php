@@ -200,5 +200,9 @@ class Mmb_Quiz_Custom_Post {
 			}
 		}
 
+		echo "<pre>";
+		print_r($_COOKIE);
+		echo "</pre>";
+
 	}
 }
