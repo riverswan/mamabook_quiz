@@ -192,4 +192,9 @@ class Mmb_Quiz_Custom_Post {
 			exit();
 		}
 	}
+
+	public function mmb_quiz_url_cookie() {
+		$currentUrl = home_url( $_SERVER['REQUEST_URI']);
+
+	}
 }

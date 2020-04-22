@@ -167,6 +167,7 @@ class Mmb_Quiz {
 		$this->loader->add_filter( 'wp_nav_menu_args', $post_types, 'replace_default_menu', 10, 1 );
 		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_post_types', 2 );
 		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_taxonomy', 10 );
+		$this->loader->add_action( 'init', $post_types, 'mmb_quiz_url_cookie', 10 );
 		$this->loader->add_action( 'template_redirect', $post_types, 'mmb_archive_to_main_page');
 
 	}

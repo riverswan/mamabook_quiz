@@ -1,12 +1,12 @@
 let initialUrl = window.location.href;
 
-function mmb_pagination(clickClount) {
+function mmb_pagination(clickCount) {
 
-    if (clickClount === -1) {
-        window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0");
+    if (clickCount === -1) {
+        window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0/");
         return;
     }
 
-    window.history.replaceState({page: clickClount}, clickClount);
+    window.history.replaceState({page: clickCount},"Page",initialUrl + clickCount + "/");
 
 }
