@@ -194,7 +194,11 @@ class Mmb_Quiz_Custom_Post {
 	}
 
 	public function mmb_quiz_url_cookie() {
-		$currentUrl = home_url( $_SERVER['REQUEST_URI']);
+		if (is_singular('onlinetest')){
+			if ( strcmp(get_permalink(),home_url( $_SERVER['REQUEST_URI'])) !== 0 ){
+				wp_redirect( get_permalink(), 301 );
+			}
+		}
 
 	}
 }
