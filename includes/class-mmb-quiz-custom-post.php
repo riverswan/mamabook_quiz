@@ -199,9 +199,13 @@ class Mmb_Quiz_Custom_Post {
 				wp_redirect( get_permalink(), 301 );
 			}
 		}
+	}
 
-		echo "<pre>";
-		print_r($_COOKIE);
-		echo "</pre>";
+	public function delete_bigmir_widget($widgets) {
+
+		if (is_singular('onlinetest')){
+			$widgets['footer-instagram'] = null;
+		}
+		return $widgets;
 	}
 }
