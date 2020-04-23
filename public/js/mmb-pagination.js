@@ -9,26 +9,9 @@ document.addEventListener('DOMContentLoaded',function () {
     footer.prepend(bmInnerElem);
     initBigMir();
 });
-
-
 function BM_Draw(oBM_STAT) {
     tableElem.innerHTML = '<table cellpadding="0" cellspacing="0" border="0" style="display:block;margin-right:4px; position: absolute; bottom:0; right:0"><tr><td><div style="font-family:Tahoma;font-size:10px;padding:0px;margin:0px;"><div style="width:7px;float:left;background:url(\'//i.bigmir.net/cnt/samples/default/b57_left.gif\');height:17px;padding-top:2px;background-repeat:no-repeat;"></div><div style="float:left;background:url(\'//i.bigmir.net/cnt/samples/default/b57_center.gif\');text-align:left;height:17px;padding-top:2px;background-repeat:repeat-x;"><a href="http://www.bigmir.net/" target="_blank" style="color:#0000ab;text-decoration:none;">bigmir<span style="color:#ff0000;">)</span>net</a>  <span style="color:#71b27e;">хиты</span> <span style="color:#12351d;font:10px Tahoma;">' + oBM_STAT.hits + '</span> <span style="color:#71b27e;">хосты</span> <span style="color:#12351d;font:10px Tahoma;">' + oBM_STAT.hosts + '</span></div><div style="width:7px;float: left;background:url(\'//i.bigmir.net/cnt/samples/default/b57_right.gif\');height:17px;padding-top:2px;background-repeat:no-repeat;"></div></div></td></tr></table>';
 }
-function mmb_pagination(clickCount) {
-    bmInnerElem.innerHTML = "";
-    if (clickCount === -1) {
-        window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0/");
-        initBigMir();
-        return;
-    }
-
-    window.history.replaceState({page: clickCount}, "Page", initialUrl + clickCount + "/");
-
-
-    initBigMir();
-}
-
-
 function initBigMir() {
     bmN = navigator, bmD = document, bmD.cookie = 'b=b', i = 0, bs = [], bm = {
         o: 1,
@@ -75,7 +58,6 @@ function initBigMir() {
     addNoScript();
     bmInnerElem.prepend(tableElem);
 }
-
 function addNoScript() {
     bmInnerElem.innerHTML += '<noscript>\n' +
         '            <a href="http://www.bigmir.net/" target="_blank">\n' +
@@ -85,3 +67,19 @@ function addNoScript() {
         '            </a>\n' +
         '        </noscript>';
 }
+function mmb_pagination(clickCount) {
+    bmInnerElem.innerHTML = "";
+    if (clickCount === -1) {
+        window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0/");
+        initBigMir();
+        return;
+    }
+
+    window.history.replaceState({page: clickCount}, "Page", initialUrl + clickCount + "/");
+
+
+    initBigMir();
+}
+
+
+

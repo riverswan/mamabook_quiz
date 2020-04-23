@@ -97,8 +97,10 @@ class Mmb_Quiz_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mmb-quiz-public.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( $this->plugin_name.'-pagination', plugin_dir_url( __FILE__ ) . 'js/mmb-pagination.js', array( 'jquery' ), $this->version, false );
 
+		if (is_singular('onlinetest')){
+			wp_enqueue_script( $this->plugin_name.'-pagination', plugin_dir_url( __FILE__ ) . 'js/mmb-pagination.js', array( 'jquery' ), $this->version, false );
+		}
 	}
 
 }
