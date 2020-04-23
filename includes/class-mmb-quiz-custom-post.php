@@ -200,8 +200,6 @@ class Mmb_Quiz_Custom_Post {
 			}
 		}
 
-		unset($_COOKIE['b']);
-		setcookie('b',null,0,'/');
 		echo "<pre>";
 		print_r($_COOKIE);
 		echo "</pre>";
