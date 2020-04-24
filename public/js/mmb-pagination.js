@@ -74,10 +74,7 @@ function mmb_pagination(clickCount) {
         initBigMir();
         return;
     }
-
     window.history.replaceState({page: clickCount}, "Page", initialUrl + clickCount + "/");
-
-
     initBigMir();
 }
 
