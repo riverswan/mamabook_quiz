@@ -105,9 +105,23 @@ function initAdsense() {
         document.querySelector('head').removeChild(gtag2);
         document.querySelector('head').removeChild(analyticsTag);
 
-        document.querySelector('head').append(gtag1,gtag2,analyticsTag);
-    }catch (e) {
 
+        gtag1 = document.createElement('script');
+        gtag1 = document.createElement('script');
+        gtag1.src = "https://www.googletagmanager.com/gtag/js?id=UA-135047501-1";
+        gtag1.setAttribute('id','mmb_adsense_id1')
+
+        gtag2 = document.createElement('script');
+        gtag2.setAttribute('id','mmb_adsense_id2')
+        gtag2.innerHTML = "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-135047501-1');";
+
+        let gtag3 = document.createElement('script');
+        gtag3.src = "https://www.google-analytics.com/analytics.js";
+        setTimeout(()=>{
+            document.querySelector('head').append(gtag1,gtag2,gtag3)
+        },500)
+    }catch (e) {
+        console.log('something happend is adsense')
     }
 }
 
