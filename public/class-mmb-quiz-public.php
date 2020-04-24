@@ -100,7 +100,6 @@ class Mmb_Quiz_Public {
 
 		if (is_singular('onlinetest')){
 			wp_enqueue_script( $this->plugin_name.'-pagination', plugin_dir_url( __FILE__ ) . 'js/mmb-pagination.js', array( 'jquery' ), $this->version, false );
-			wp_enqueue_script( $this->plugin_name.'-analyticsj', plugin_dir_url( __FILE__ ) . 'js/autotrack.js', array(), $this->version, false );
 		}
 	}
 

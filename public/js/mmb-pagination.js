@@ -2,16 +2,21 @@ let initialUrl = window.location.href;
 let tableElem = document.createElement('div');
 tableElem.style.position = 'relative';
 let bmInnerElem = document.createElement('div');
-bmInnerElem.setAttribute('id','mmb_bigmir_statistics');
+bmInnerElem.setAttribute('id', 'mmb_bigmir_statistics');
 
-document.addEventListener('DOMContentLoaded',function () {
+document.addEventListener('DOMContentLoaded', function () {
     let footer = document.getElementById('footer-section');
     footer.prepend(bmInnerElem);
     initBigMir();
+
+
 });
+
+
 function BM_Draw(oBM_STAT) {
     tableElem.innerHTML = '<table cellpadding="0" cellspacing="0" border="0" style="display:block;margin-right:4px; position: absolute; bottom:0; right:0"><tr><td><div style="font-family:Tahoma;font-size:10px;padding:0px;margin:0px;"><div style="width:7px;float:left;background:url(\'//i.bigmir.net/cnt/samples/default/b57_left.gif\');height:17px;padding-top:2px;background-repeat:no-repeat;"></div><div style="float:left;background:url(\'//i.bigmir.net/cnt/samples/default/b57_center.gif\');text-align:left;height:17px;padding-top:2px;background-repeat:repeat-x;"><a href="http://www.bigmir.net/" target="_blank" style="color:#0000ab;text-decoration:none;">bigmir<span style="color:#ff0000;">)</span>net</a>  <span style="color:#71b27e;">хиты</span> <span style="color:#12351d;font:10px Tahoma;">' + oBM_STAT.hits + '</span> <span style="color:#71b27e;">хосты</span> <span style="color:#12351d;font:10px Tahoma;">' + oBM_STAT.hosts + '</span></div><div style="width:7px;float: left;background:url(\'//i.bigmir.net/cnt/samples/default/b57_right.gif\');height:17px;padding-top:2px;background-repeat:no-repeat;"></div></div></td></tr></table>';
 }
+
 function initBigMir() {
     bmN = navigator, bmD = document, bmD.cookie = 'b=b', i = 0, bs = [], bm = {
         o: 1,
@@ -51,13 +56,14 @@ function initBigMir() {
 
     let src = '//c.bigmir.net/?' + bs.join('&') + '';
     let script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    script.setAttribute('language','javascript');
-    script.setAttribute('src',src);
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('language', 'javascript');
+    script.setAttribute('src', src);
     bmInnerElem.appendChild(script);
     addNoScript();
     bmInnerElem.prepend(tableElem);
 }
+
 function addNoScript() {
     bmInnerElem.innerHTML += '<noscript>\n' +
         '            <a href="http://www.bigmir.net/" target="_blank">\n' +
@@ -67,16 +73,41 @@ function addNoScript() {
         '            </a>\n' +
         '        </noscript>';
 }
+
 function mmb_pagination(clickCount) {
     bmInnerElem.innerHTML = "";
     if (clickCount === -1) {
         window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0/");
         initBigMir();
+        initAdsense();
         return;
     }
     window.history.replaceState({page: clickCount}, "Page", initialUrl + clickCount + "/");
     initBigMir();
+    initAdsense();
 }
 
+function initAdsense() {
 
+    try {
+        let gtag1 = document.getElementById('mmb_adsense_id1');
+        let gtag2 = document.getElementById('mmb_adsense_id2');
+        let listOfTags = document.querySelector('head').querySelectorAll('script');
+        let analyticsTag = null;
+
+        for (let i = 0; i < listOfTags.length; i++) {
+            if (listOfTags[i].src.includes('analytics.js')) {
+                analyticsTag = listOfTags[i];
+                break;
+            }
+        }
+        document.querySelector('head').removeChild(gtag1);
+        document.querySelector('head').removeChild(gtag2);
+        document.querySelector('head').removeChild(analyticsTag);
+
+        document.querySelector('head').append(gtag1,gtag2,analyticsTag);
+    }catch (e) {
+
+    }
+}
 
