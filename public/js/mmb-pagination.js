@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let footer = document.getElementById('footer-section');
     footer.prepend(bmInnerElem);
     initBigMir();
-
-
 });
 
 
@@ -32,19 +30,19 @@ function initBigMir() {
         if (bmN.plugins && bmN.mimeTypes.length && (x = bmN.plugins['Shockwave Flash'])) bm.m = parseInt(x.description.replace(/([a-zA-Z]|\s)+/, ''));
         else for (var f = 3; f < 20; f++) if (eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.' + f + '")')) bm.m = f
     } catch (e) {
-        ;
+
     }
     try {
         bm.y = bmN.javaEnabled() ? 1 : 0
     } catch (e) {
-        ;
+
     }
     try {
         bmS = screen;
         bm.v ^= bm.d = bmS.colorDepth || bmS.pixelDepth;
         bm.v ^= bm.r = bmS.width
     } catch (e) {
-        ;
+
     }
     r = bmD.referrer.replace(/^w+:\/\//, '');
     if (r && r.split('/')[0] != window.location.host) {
@@ -79,12 +77,12 @@ function mmb_pagination(clickCount) {
     if (clickCount === -1) {
         window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0/");
         initBigMir();
-        initAdsense();
+        // initAdsense();
         return;
     }
     window.history.replaceState({page: clickCount}, "Page", initialUrl + clickCount + "/");
     initBigMir();
-    initAdsense();
+    // initAdsense();
 }
 
 function initAdsense() {
@@ -109,19 +107,29 @@ function initAdsense() {
         gtag1 = document.createElement('script');
         gtag1 = document.createElement('script');
         gtag1.src = "https://www.googletagmanager.com/gtag/js?id=UA-135047501-1";
-        gtag1.setAttribute('id','mmb_adsense_id1')
+        gtag1.setAttribute('id', 'mmb_adsense_id1');
 
         gtag2 = document.createElement('script');
-        gtag2.setAttribute('id','mmb_adsense_id2')
+        gtag2.setAttribute('id', 'mmb_adsense_id2');
         gtag2.innerHTML = "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-135047501-1');";
 
-        let gtag3 = document.createElement('script');
-        gtag3.src = "https://www.google-analytics.com/analytics.js";
-        setTimeout(()=>{
-            document.querySelector('head').append(gtag1,gtag2,gtag3)
-        },500)
-    }catch (e) {
-        console.log('something happend is adsense')
+        // let gtag3 = document.createElement('script');
+        // gtag3.src = "https://www.google-analytics.com/analytics.js";
+        let newArr = [];
+        let k = 0;
+        for (let i = 0; i < window.dataLayer.length; i++) {
+            if (window.dataLayer[i].event !== undefined) {
+                newArr[k++] = window.dataLayer[i];
+            }
+        }
+
+        window.dataLayer = [...newArr];
+        setTimeout(() => {
+            document.querySelector('head').append(gtag1, gtag2, analyticsTag);
+        }, 500)
+
+    } catch (e) {
+        console.log('something happend in adsense' + e)
     }
 }
 
