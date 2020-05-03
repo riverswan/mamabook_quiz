@@ -77,59 +77,8 @@ function mmb_pagination(clickCount) {
     if (clickCount === -1) {
         window.history.replaceState({page: 'finish'}, "Finish", initialUrl + "0/");
         initBigMir();
-        // initAdsense();
         return;
     }
     window.history.replaceState({page: clickCount}, "Page", initialUrl + clickCount + "/");
     initBigMir();
-    // initAdsense();
 }
-
-function initAdsense() {
-
-    try {
-        let gtag1 = document.getElementById('mmb_adsense_id1');
-        let gtag2 = document.getElementById('mmb_adsense_id2');
-        let listOfTags = document.querySelector('head').querySelectorAll('script');
-        let analyticsTag = null;
-
-        for (let i = 0; i < listOfTags.length; i++) {
-            if (listOfTags[i].src.includes('analytics.js')) {
-                analyticsTag = listOfTags[i];
-                break;
-            }
-        }
-        document.querySelector('head').removeChild(gtag1);
-        document.querySelector('head').removeChild(gtag2);
-        document.querySelector('head').removeChild(analyticsTag);
-
-
-        gtag1 = document.createElement('script');
-        gtag1 = document.createElement('script');
-        gtag1.src = "https://www.googletagmanager.com/gtag/js?id=UA-135047501-1";
-        gtag1.setAttribute('id', 'mmb_adsense_id1');
-
-        gtag2 = document.createElement('script');
-        gtag2.setAttribute('id', 'mmb_adsense_id2');
-        gtag2.innerHTML = "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-135047501-1');";
-
-        // let gtag3 = document.createElement('script');
-        // gtag3.src = "https://www.google-analytics.com/analytics.js";
-        let newArr = [];
-        let k = 0;
-        for (let i = 0; i < window.dataLayer.length; i++) {
-            if (window.dataLayer[i].event !== undefined) {
-                newArr[k++] = window.dataLayer[i];
-            }
-        }
-
-        window.dataLayer = [...newArr];
-        setTimeout(() => {
-            document.querySelector('head').append(gtag1, gtag2, analyticsTag);
-        }, 500)
-
-    } catch (e) {
-        console.log('something happend in adsense' + e)
-    }
-}
-
